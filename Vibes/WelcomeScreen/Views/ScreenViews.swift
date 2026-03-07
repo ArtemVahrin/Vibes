@@ -7,13 +7,6 @@
 
 import SwiftUI
 
-struct FirstScreenView: View {
-    var body: some View {
-        Text("Welcome")
-            .font(.largeTitle)
-            .foregroundStyle(.font)
-    }
-}
 
 struct SecondScreenView: View {
     var body: some View {
