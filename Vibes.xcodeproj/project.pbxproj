@@ -29,6 +29,23 @@
 		98026CB32F5C4960003940C2 /* VibesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VibesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		98026CFD2F5C58D8003940C2 /* Exceptions for "VibesTests" folder in "Vibes" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				TestFile.swift,
+			);
+			target = 98026C992F5C495E003940C2 /* Vibes */;
+		};
+		98026CFE2F5C58D8003940C2 /* Exceptions for "VibesTests" folder in "VibesTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				TestFile.swift,
+			);
+			target = 98026CA82F5C4960003940C2 /* VibesTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		98026C9C2F5C495E003940C2 /* Vibes */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -37,6 +54,10 @@
 		};
 		98026CAC2F5C4960003940C2 /* VibesTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				98026CFD2F5C58D8003940C2 /* Exceptions for "VibesTests" folder in "Vibes" target */,
+				98026CFE2F5C58D8003940C2 /* Exceptions for "VibesTests" folder in "VibesTests" target */,
+			);
 			path = VibesTests;
 			sourceTree = "<group>";
 		};
