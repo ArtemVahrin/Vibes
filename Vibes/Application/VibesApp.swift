@@ -26,7 +26,7 @@ struct VibesApp: App {
     var body: some Scene {
         WindowGroup {
 //            ContentView()
-            WelcomeScreenView()
+            FirstScreenView()
         }
         .modelContainer(sharedModelContainer)
     }

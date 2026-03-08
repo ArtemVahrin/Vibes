@@ -11,21 +11,23 @@ struct FirstScreenView: View {
     @State var name = "" //FIXME: add name to userDefaults
     
     var body: some View {
-        ZStack {
-            Color.back.ignoresSafeArea()
-            
-            VStack(alignment: .center) {
-                Spacer()
+        NavigationStack {
+            ZStack {
+                Color.back.ignoresSafeArea()
                 
-                entryMessage
-                
-                enterNameField
-                
-                Spacer()
-                
-                nextScreenButton
+                VStack(alignment: .center) {
+                    Spacer()
+                    
+                    entryMessage
+                    
+                    enterNameField
+                    
+                    Spacer()
+                    
+                    nextScreenButton
+                }
+                .padding()
             }
-            .padding()
         }
     }
     
@@ -37,15 +39,16 @@ struct FirstScreenView: View {
     }
     
     var enterNameField: some View {
-        TextField("   Your name", text: $name)
-            .frame(width: .infinity, height: 50)
+        TextField("Your name", text: $name)
+            .padding()
+            .frame(height: 50)
             .background(RoundedRectangle(cornerRadius: 20).fill(.font))
         
     }
     
     var nextScreenButton: some View {
-        Button() {
-            
+        NavigationLink {
+            SecondScreenView(name: name)
         } label: {
             HStack {
                 Text("Let`s start")
