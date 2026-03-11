@@ -10,6 +10,8 @@ import SwiftUI
 struct SecondScreenView: View {
     var name: String
     
+    @Binding var navigationPath: [AppScreen]
+    
     var body: some View {
         ZStack {
             Color.back.ignoresSafeArea()
@@ -42,8 +44,8 @@ struct SecondScreenView: View {
     }
     
     private var nextScreenButton: some View {
-        NavigationLink {
-            ChooseTrackingTypes()
+        Button {
+            navigationPath.append(.chooseTrackings)
         } label: {
             HStack {
                 Text("Let`s start")
@@ -58,6 +60,6 @@ struct SecondScreenView: View {
     
 }
 
-#Preview {
-    SecondScreenView(name: "Pop")
-}
+//#Preview {
+//    SecondScreenView(name: "Pop")
+//}

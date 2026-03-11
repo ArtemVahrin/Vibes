@@ -9,25 +9,27 @@ import SwiftUI
 
 struct FirstScreenView: View {
     @State var name = "" //FIXME: add name to userDefaults
+    @Binding var navigationPath: [AppScreen]
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                Color.back.ignoresSafeArea()
+        ZStack {
+            Color.back.ignoresSafeArea()
+            
+            VStack(alignment: .center) {
+                Spacer()
                 
-                VStack(alignment: .center) {
-                    Spacer()
-                    
-                    entryMessage
-                    
-                    enterNameField
-                    
-                    Spacer()
-                    
-                    nextScreenButton
-                }
-                .padding()
+                entryMessage
+                
+                enterNameField
+                
+                Spacer()
+                
+                nextScreenButton
+                //                    .onTapGesture {
+                //                        SettingsStorage.shared.save(name: name)
+                //                    }
             }
+            .padding()
         }
     }
     
@@ -46,8 +48,8 @@ struct FirstScreenView: View {
     }
     
     var nextScreenButton: some View {
-        NavigationLink {
-            SecondScreenView(name: name)
+        Button {
+            navigationPath.append(.secondScreen(name: name))
         } label: {
             HStack {
                 Text("Let`s start")
@@ -61,6 +63,6 @@ struct FirstScreenView: View {
     }
 }
 
-#Preview {
-    FirstScreenView()
-}
+//#Preview {
+//    FirstScreenView(, navigationPath: <#Binding<[AppScreen]>#>)
+//}

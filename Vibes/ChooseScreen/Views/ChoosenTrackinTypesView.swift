@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ChooseTrackingTypes: View {
     @State var selectedTracks: Set<TrackingType> = [] //FIXME: Create some ViewModel to store a selected Tracks
+    @Binding var navigationPath: [AppScreen]
     
     var body: some View {
         ZStack {
@@ -21,6 +22,9 @@ struct ChooseTrackingTypes: View {
                 chooseButtons
                 
                 nextScreenButton
+                    .onTapGesture {
+                        SettingsStorage.shared.save(tracks: selectedTracks)
+                    }
                     
             }
             .foregroundStyle(.font)
@@ -67,8 +71,8 @@ struct ChooseTrackingTypes: View {
     }
     
     var nextScreenButton: some View {
-        NavigationLink {
-           
+        Button {
+            navigationPath.append(.mainScreen)
         } label: {
             HStack {
                 Text("Next")
@@ -81,6 +85,6 @@ struct ChooseTrackingTypes: View {
     }
 }
 
-#Preview {
-    ChooseTrackingTypes()
-}
+//#Preview {
+//    ChooseTrackingTypes()
+//}

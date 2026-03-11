@@ -18,8 +18,12 @@ class SettingsStorage {
         UserDefaults.setValue(name, forKey: "user.name")
     }
     
-    func save(tracks: [TrackingType]) {
+    func save(tracks: Set<TrackingType>) {
         UserDefaults.setValue(tracks, forKey: "user.tracks")
+    }
+    
+    func getName() -> String {
+        UserDefaults.standard.string(forKey: "user.name") ?? ""
     }
 
 }

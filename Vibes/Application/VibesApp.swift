@@ -22,11 +22,32 @@ struct VibesApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
-
+    
+    @AppStorage("HasSeenOnboarding") private var hasSeenOnboarding = false
+    @State private var navigationPath = [AppScreen]()
+    
     var body: some Scene {
         WindowGroup {
-//            ContentView()
-            FirstScreenView()
+            NavigationStack(path: $navigationPath) {
+                Group {
+                    if hasSeenOnboarding {
+                        MainView(navigationPath: $navigationPath)
+                    } else {
+                        FirstScreenView(name: "", navigationPath: $navigationPath)
+                    }
+                }
+                .navigationDestination(for: AppScreen.self) { screen in
+                    switch screen {
+                    case .firstScreen:
+                        FirstScreenView(name: "", navigationPath: $navigationPath)
+                    case .secondScreen(let name):
+                        SecondScreenView(name: name, navigationPath: $navigationPath)
+                    case .chooseTrackings:
+                        ChooseTrackingTypes(selectedTracks: [], navigationPath: $navigationPath)
+                    case .mainScreen: MainView(navigationPath: $navigationPath)
+                    }
+                }
+            }
         }
         .modelContainer(sharedModelContainer)
     }
