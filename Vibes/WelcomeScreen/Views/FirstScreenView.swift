@@ -41,8 +41,7 @@ struct FirstScreenView: View {
     var enterNameField: some View {
         TextField("Your name", text: $name)
             .padding()
-            .frame(height: 50)
-            .background(RoundedRectangle(cornerRadius: 20).fill(.font))
+            .background(RoundedRectangle(cornerRadius: ViewConstants.cornerRadius).fill(.font))
         
     }
     
@@ -57,7 +56,7 @@ struct FirstScreenView: View {
             }
             .foregroundStyle(.font)
             .padding()
-            .background(RoundedRectangle(cornerRadius: 20).fill(.main))
+            .background(RoundedRectangle(cornerRadius: ViewConstants.cornerRadius).fill(.main))
         }
     }
 }

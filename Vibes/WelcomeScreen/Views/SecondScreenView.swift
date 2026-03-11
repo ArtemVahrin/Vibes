@@ -37,12 +37,13 @@ struct SecondScreenView: View {
     
     private var gladMessage: some View {
         Text("We'll help you capture moods and events with emojis—without words. Discover patterns, explore your feelings, and cherish every moment, big or small.")
+            .foregroundStyle(.font)
             .padding()
     }
     
     private var nextScreenButton: some View {
         NavigationLink {
-            
+            ChooseTrackingTypes()
         } label: {
             HStack {
                 Text("Let`s start")
@@ -51,7 +52,7 @@ struct SecondScreenView: View {
             }
             .foregroundStyle(.font)
             .padding()
-            .background(RoundedRectangle(cornerRadius: 20).fill(.main))
+            .background(RoundedRectangle(cornerRadius: ViewConstants.cornerRadius).fill(.main))
         }
     }
     
