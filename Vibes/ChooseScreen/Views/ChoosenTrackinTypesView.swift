@@ -23,6 +23,7 @@ struct ChooseTrackingTypes: View {
                 nextScreenButton
                     
             }
+            .foregroundStyle(.font)
             .padding()
         }
     }
@@ -30,13 +31,11 @@ struct ChooseTrackingTypes: View {
     private var chooseTrackingTitle: some View {
         Text("What do you want to track?")
             .font(.largeTitle)
-            .foregroundStyle(.font)
             .multilineTextAlignment(.center)
     }
     
     private var chooseTrackingDescription: some View {
         Text("Give your entries meaning by choosing the activities you engage in.")
-            .foregroundStyle(.font)
             .padding()
     }
     
@@ -48,7 +47,6 @@ struct ChooseTrackingTypes: View {
                 } else {
                     selectedTracks.insert(trackType)
                 }
-                print(selectedTracks.count)
             } label: {
                 HStack {
                     ChoosenTrackinTypesCell(trackingType: trackType)
@@ -77,7 +75,6 @@ struct ChooseTrackingTypes: View {
                 
                 Image(systemName: "chevron.right")
             }
-            .foregroundStyle(.font)
             .padding()
             .background(RoundedRectangle(cornerRadius: ViewConstants.cornerRadius).fill(.main))
         }

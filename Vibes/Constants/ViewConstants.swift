@@ -9,4 +9,5 @@ import Foundation
 
 struct ViewConstants {
     static var cornerRadius: CGFloat = 20
+    
 }
