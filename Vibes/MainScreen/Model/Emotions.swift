@@ -41,3 +41,5 @@ enum Emotion: String {
 }
 
 extension Emotion: Hashable { }
+
+extension Emotion: Codable { }

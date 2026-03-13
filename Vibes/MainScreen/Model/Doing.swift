@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftData
 
 struct Doing {
     var title: String
@@ -20,3 +21,5 @@ extension Doing {
 }
 
 extension Doing: Hashable { } 
+
+extension Doing: Codable { }
