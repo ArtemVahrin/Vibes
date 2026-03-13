@@ -6,29 +6,31 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct MainView: View {
     @Binding var navigationPath: [AppScreen] //FIXME: hide back button and clear navPath array
     
-    var cardsOfDays: [CardOfDay] = [CardOfDay(emotion: Emotion.super, date: .now, noteText: "qweewq", doings: Doing.builtins),
-                                    CardOfDay(emotion: Emotion.bad, date: Date(), noteText: "pppp", doings: [
-        Doing(title: "family", imageName: "circle"),
-        Doing(title: "sport", imageName: "microphone"),
-        Doing(title: "family", imageName: "circle"),
-        Doing(title: "sport", imageName: "microphone"),
-        Doing(title: "family", imageName: "circle"),
-        Doing(title: "sport", imageName: "microphone")])]
+    @Environment(\.modelContext) private var modelContext
+    @Query private var cardsOfDays: [CardOfDayModel]
+
     
     var body: some View {
         List {
             ForEach(cardsOfDays, id: \.self) { card in
-                DayCardCellView(card: card)
+                DayCardCellView(card: card.convert())
             }
         }
+        
+//        Button("add") {
+//            let newCard = CardOfDay(emotion: .bad, date: Date(), noteText: "NoteTextTest", doings: [Doing(title: "droqwe", imageName: "circle.fill")])
+//            modelContext.insert(CardOfDayModel(cardOfDay: newCard))
+//        }
     }
 }
 
 #Preview {
     @Previewable @State var navigationPath = [AppScreen]()
     MainView(navigationPath: $navigationPath)
+        .modelContainer(for: CardOfDayModel.self, inMemory: true)
 }
