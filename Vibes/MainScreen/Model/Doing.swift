@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+struct Doing {
+    var title: String
+    var imageName: String
+}
+
+extension Doing {
+    static var builtins: [Doing] = [
+        Doing(title: "family", imageName: "circle"),
+        Doing(title: "sport", imageName: "microphone")
+    ]
+}
+
+extension Doing: Hashable { } 

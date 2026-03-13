@@ -21,7 +21,7 @@ struct ChoosenTrackinTypesCell: View {
                         .font(Font.system(size: 24))
                         .bold()
                     
-                    Text(trackingType.examples.joined(separator: ", "))
+                    Text(trackingType.examples.joined(separator: ", "))// FIXME: add a slidingEffect to a text
                         .multilineTextAlignment(.trailing)
                         .lineLimit(1)
                 }
