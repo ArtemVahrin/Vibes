@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Emotion: String {
+enum Emotion: String, CaseIterable {
     case `super` = "super"
     case good = "good"
     case mid = "mid"

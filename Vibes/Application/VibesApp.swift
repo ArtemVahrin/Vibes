@@ -12,7 +12,7 @@ import SwiftData
 struct VibesApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            CardOfDayModel.self,
+            CardOfDay.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -24,7 +24,11 @@ struct VibesApp: App {
     }()
     
     @AppStorage("HasSeenOnboarding") private var hasSeenOnboarding = false
+    
     @State private var navigationPath = [AppScreen]()
+
+//    static private var cardStorage = CardOfDayStorage()
+//    @State private var viewModel = ViewModel(cardOfDaysStorage: cardStorage)
     
     var body: some Scene {
         WindowGroup {
@@ -44,7 +48,11 @@ struct VibesApp: App {
                         SecondScreenView(name: name, navigationPath: $navigationPath)
                     case .chooseTrackings:
                         ChooseTrackingTypes(selectedTracks: [], navigationPath: $navigationPath)
-                    case .mainScreen: MainView(navigationPath: $navigationPath)
+                    case .mainScreen:
+                        MainView(navigationPath: $navigationPath)
+                            .onAppear {
+                                hasSeenOnboarding = true
+                            }
                     }
                 }
             }

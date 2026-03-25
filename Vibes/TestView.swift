@@ -78,6 +78,6 @@ struct DayCardCellView1: View {
         emotion: Emotion.super,
         date: Date(),
         noteText: "Sample note",
-        doings: Doing.builtins
+        doings: Doing.allBuiltins
     ))
 }

@@ -71,5 +71,5 @@ struct DayCardCellView: View {
 }
 
 #Preview {
-    DayCardCellView(card: CardOfDay(emotion: Emotion.super, date: Date(), noteText: "", doings: Doing.builtins))
+    DayCardCellView(card: CardOfDay(emotion: Emotion.super, date: Date(), noteText: "", doings: Doing.allBuiltins))
 }

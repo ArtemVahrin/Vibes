@@ -25,9 +25,6 @@ struct FirstScreenView: View {
                 Spacer()
                 
                 nextScreenButton
-                //                    .onTapGesture {
-                //                        SettingsStorage.shared.save(name: name)
-                //                    }
             }
             .padding()
         }
