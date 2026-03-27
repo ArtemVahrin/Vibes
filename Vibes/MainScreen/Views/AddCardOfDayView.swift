@@ -55,44 +55,61 @@ struct AddCardOfDayView: View {
     
     var chooseDate: some View {
         DatePicker(selection: $cardOfDay.date) {
-            Text(cardOfDay.date.formatted(date: .abbreviated, time: .shortened))
         }
     }
     
-    var chooseDoings: some View { //FIXME: Change grid
-        LazyHGrid(rows: [GridItem(.adaptive(minimum: 40))]) {
-            ForEach(Doing.allBuiltins) { doing in
-                doingCell(doing)
-                    .onTapGesture {
-                        if let index = Doing.allBuiltins.firstIndex(where: { $0.id == doing.id }) {
-                            Doing.allBuiltins[index].isChosen.toggle()
+    var chooseDoings: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            LazyHGrid(rows: [GridItem(.adaptive(minimum: 40))]) {
+                ForEach(Doing.allBuiltins) { doing in
+                    doingCell(doing)
+                        .onTapGesture {
+                            if let index = Doing.allBuiltins.firstIndex(where: { $0.id == doing.id }) {
+                                Doing.allBuiltins[index].isChosen.toggle()
+                            }
+                            
+                            save(doing: doing)
                         }
-                    }
+                }
             }
         }
     }
     
     private func doingCell(_ doing: Doing) -> some View {
         VStack {
-            Image(systemName: doing.isChosen ? doing.imageName + ".fill" : doing.imageName)
+            Image(systemName: doing.imageName)
             
             Text(doing.title)
         }
         .padding(12)
         .foregroundStyle(.black)
-        .background(Color.gray.opacity(0.1))
+        .background(doing.isChosen ? Color(cardOfDay.emotion.colorName).opacity(0.5) : Color(cardOfDay.emotion.colorName).opacity(0.1)) //FIXME: Add animation
         .clipShape(RoundedRectangle(cornerRadius: ViewConstants.cornerRadius))
     }
     
     private func saveCardOfDay() {
+        clearDoingsStatus()
+        
         modelContext.insert(cardOfDay)
         try? modelContext.save()
         
         dismiss()
     }
+    
+    private func save(doing: Doing) {
+        if let chosenIndex = cardOfDay.doings.firstIndex(where: { $0.id == doing.id }) {
+            cardOfDay.doings.remove(at: chosenIndex)
+        } else {
+            cardOfDay.doings.append(doing)
+        }
+    }
+    
+    private func clearDoingsStatus() {
+        Doing.allBuiltins.forEach { $0.isChosen = false }
+    }
 }
 
 #Preview {
-//    var card = CardOfDay(emotion: Emotion.awful, date: Date(), noteText: "qwe", doings: [])
-//    AddCardOfDayView(cardOfDay: card)
+    var card = CardOfDay(emotion: Emotion.awful, date: Date(), noteText: "qwe", doings: [])
+    AddCardOfDayView(cardOfDay: card)
 }

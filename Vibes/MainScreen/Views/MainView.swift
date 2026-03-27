@@ -18,6 +18,14 @@ struct MainView: View {
         List {
             ForEach(cards) { card in
                 DayCardCellView(card: card)
+                    .contextMenu {
+                        Text("\(card.doings.count)")
+                    }
+            }
+            .onDelete { indexSet in
+                for index in indexSet {
+                    context.delete(cards[index])
+                }
             }
         }
         .interactiveDismissDisabled()
@@ -33,6 +41,7 @@ struct MainView: View {
             }
         })
     }
+    
 }
 
 //#Preview {

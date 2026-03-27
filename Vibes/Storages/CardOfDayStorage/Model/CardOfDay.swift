@@ -16,11 +16,11 @@ class CardOfDay {
     var date: Date
     var noteText: String
     
-    @Relationship var doings: [Doing]
+    @Relationship var doings: [Doing] //maybe use Set
     
     var emotion: Emotion {
         get {
-            Emotion(rawValue: emotionRawValue) ?? .good
+            Emotion(rawValue: emotionRawValue) ?? .super
         }
         set {
             emotionRawValue = newValue.rawValue
