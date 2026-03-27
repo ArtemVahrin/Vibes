@@ -10,7 +10,7 @@ import SwiftData
 
 struct MainView: View {
     @Binding var navigationPath: [AppScreen] //FIXME: hide back button and clear navPath array
-    //    let viewModel: ViewModel
+
     @Query(sort: \CardOfDay.date) var cards: [CardOfDay]
     @Environment(\.modelContext) private var context
     
@@ -19,7 +19,7 @@ struct MainView: View {
             ForEach(cards) { card in
                 DayCardCellView(card: card)
                     .contextMenu {
-                        Text("\(card.doings.count)")
+                        Text("\(card.doings.count)") //FIXME: show all chosen doings in context menu
                     }
             }
             .onDelete { indexSet in

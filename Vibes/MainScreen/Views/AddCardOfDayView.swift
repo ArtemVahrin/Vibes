@@ -20,11 +20,11 @@ struct AddCardOfDayView: View {
                 chooseEmotion
             }
             
-            Section("Choose date") {
+            Section("Choose date:") {
                 chooseDate
             }
             
-            Section("Choose a doings") {
+            Section("Choose a doings:") {
                 chooseDoings
             }
         }
@@ -67,7 +67,6 @@ struct AddCardOfDayView: View {
                             if let index = Doing.allBuiltins.firstIndex(where: { $0.id == doing.id }) {
                                 Doing.allBuiltins[index].isChosen.toggle()
                             }
-                            
                             save(doing: doing)
                         }
                 }
