@@ -15,7 +15,7 @@ struct DayCardCellView: View {
             RoundedRectangle(cornerRadius: ViewConstants.cornerRadius)
                 .foregroundStyle(Color(card.emotion.colorName))
             
-            VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading, spacing: ViewConstants.paddingSize) {
                 info
                 
                 if !card.noteText.isEmpty {
@@ -37,13 +37,13 @@ struct DayCardCellView: View {
     private var info: some View {
         HStack {
             Text(card.emotion.emoji)
-                .font(.system(size: 40))
+                .font(.system(size: FontConstants.titleSize))
             
             VStack(alignment: .leading) {
                 Text(card.date.formatted(date: .abbreviated, time: .shortened))
                 
                 Text(card.emotion.rawValue)
-                    .font(Font.system(size: 30))
+                    .font(Font.system(size: FontConstants.subtitleSize))
                     .bold()
             }
             
@@ -64,8 +64,8 @@ struct DayCardCellView: View {
             
             Text(doing.title)
         }
-        .padding(8)
-        .background(Color.gray.opacity(0.2))
+        .padding(ViewConstants.paddingSize)
+        .background(Color.gray.opacity(ViewConstants.backgroundOpacity))
         .clipShape(RoundedRectangle(cornerRadius: ViewConstants.cornerRadius))
     }
 }

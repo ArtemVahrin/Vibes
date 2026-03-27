@@ -41,9 +41,9 @@ struct AddCardOfDayView: View {
         HStack {
             ForEach(Emotion.allCases, id: \.self) { emote in
                 Text(emote.emoji)
-                    .font(.system(size: 40))
-                    .padding(5)
-                    .background(RoundedRectangle(cornerRadius: ViewConstants.cornerRadius).fill(emote.emoji == cardOfDay.emotion.emoji ? Color(emote.colorName) : .gray.opacity(0.2))) //FIXME: add animation like in swiftUIAnimationsExample
+                    .font(.system(size: FontConstants.titleSize))
+                    .padding(5) //FIXME: can break in dif devices
+                    .background(RoundedRectangle(cornerRadius: ViewConstants.cornerRadius).fill(emote.emoji == cardOfDay.emotion.emoji ? Color(emote.colorName) : .gray.opacity(ViewConstants.backgroundOpacity))) //FIXME: add animation like in swiftUIAnimationsExample
                 
                     .onTapGesture {
                         cardOfDay.emotion = emote
@@ -80,9 +80,9 @@ struct AddCardOfDayView: View {
             
             Text(doing.title)
         }
-        .padding(12)
+        .padding(ViewConstants.paddingSize)
         .foregroundStyle(.black)
-        .background(doing.isChosen ? Color(cardOfDay.emotion.colorName).opacity(0.5) : Color(cardOfDay.emotion.colorName).opacity(0.1)) //FIXME: Add animation
+        .background(doing.isChosen ? Color(cardOfDay.emotion.colorName).opacity(ViewConstants.chosenOpacity) : Color(cardOfDay.emotion.colorName).opacity(ViewConstants.backgroundOpacity)) //FIXME: Add animation
         .clipShape(RoundedRectangle(cornerRadius: ViewConstants.cornerRadius))
     }
     
