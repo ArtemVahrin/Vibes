@@ -35,7 +35,7 @@ struct VibesApp: App {
             NavigationStack(path: $navigationPath) {
                 Group {
                     if hasSeenOnboarding {
-                        MainView(navigationPath: $navigationPath)
+                        ContentView(navigationPath: $navigationPath)
                     } else {
                         FirstScreenView(name: "", navigationPath: $navigationPath)
                     }
@@ -48,8 +48,8 @@ struct VibesApp: App {
                         SecondScreenView(name: name, navigationPath: $navigationPath)
                     case .chooseTrackings:
                         ChooseTrackingTypes(selectedTracks: [], navigationPath: $navigationPath)
-                    case .mainScreen:
-                        MainView(navigationPath: $navigationPath)
+                    case .contentView:
+                        ContentView(navigationPath: $navigationPath)
                             .onAppear {
                                 hasSeenOnboarding = true
                             }

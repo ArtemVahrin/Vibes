@@ -109,6 +109,6 @@ struct AddCardOfDayView: View {
 }
 
 #Preview {
-    var card = CardOfDay(emotion: Emotion.awful, date: Date(), noteText: "qwe", doings: [])
+    let card = CardOfDay(emotion: Emotion.awful, date: Date(), noteText: "qwe", doings: [])
     AddCardOfDayView(cardOfDay: card)
 }

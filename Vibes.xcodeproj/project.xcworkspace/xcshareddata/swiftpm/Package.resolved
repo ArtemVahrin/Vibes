@@ -1,0 +1,15 @@
+{
+  "originHash" : "b5a3edd282ee90951416aa21527cde4b76785a21f348c124fd1478f176d71b8b",
+  "pins" : [
+    {
+      "identity" : "moocal",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mazefest/MooCal",
+      "state" : {
+        "branch" : "master",
+        "revision" : "6a5d861d10968e576a240a777bd346ec93d13ce7"
+      }
+    }
+  ],
+  "version" : 3
+}

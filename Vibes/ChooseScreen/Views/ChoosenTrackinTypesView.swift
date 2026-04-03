@@ -72,7 +72,7 @@ struct ChooseTrackingTypes: View {
     
     var nextScreenButton: some View {
         Button {
-            navigationPath.append(.mainScreen)
+            navigationPath.append(.contentView)
         } label: {
             HStack {
                 Text("Next")

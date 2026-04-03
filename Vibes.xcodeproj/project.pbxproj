@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		98BA69452F770969003D8A1C /* MooCal in Frameworks */ = {isa = PBXBuildFile; productRef = 98BA69442F770969003D8A1C /* MooCal */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		98026CAA2F5C4960003940C2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -73,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98BA69452F770969003D8A1C /* MooCal in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +104,7 @@
 				98026C9C2F5C495E003940C2 /* Vibes */,
 				98026CAC2F5C4960003940C2 /* VibesTests */,
 				98026CB62F5C4960003940C2 /* VibesUITests */,
+				98BA69432F770969003D8A1C /* Frameworks */,
 				98026C9B2F5C495E003940C2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -111,6 +117,13 @@
 				98026CB32F5C4960003940C2 /* VibesUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		98BA69432F770969003D8A1C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,6 +146,7 @@
 			);
 			name = Vibes;
 			packageProductDependencies = (
+				98BA69442F770969003D8A1C /* MooCal */,
 			);
 			productName = Vibes;
 			productReference = 98026C9A2F5C495E003940C2 /* Vibes.app */;
@@ -192,7 +206,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2630;
-				LastUpgradeCheck = 2630;
+				LastUpgradeCheck = 2640;
 				TargetAttributes = {
 					98026C992F5C495E003940C2 = {
 						CreatedOnToolsVersion = 26.3;
@@ -216,6 +230,9 @@
 			);
 			mainGroup = 98026C912F5C495E003940C2;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				98BA69082F770812003D8A1C /* XCRemoteSwiftPackageReference "MooCal" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 98026C9B2F5C495E003940C2 /* Products */;
 			projectDirPath = "";
@@ -349,6 +366,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -406,6 +424,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -599,6 +618,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		98BA69082F770812003D8A1C /* XCRemoteSwiftPackageReference "MooCal" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mazefest/MooCal";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		98BA69442F770969003D8A1C /* MooCal */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 98BA69082F770812003D8A1C /* XCRemoteSwiftPackageReference "MooCal" */;
+			productName = MooCal;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 98026C922F5C495E003940C2 /* Project object */;
 }

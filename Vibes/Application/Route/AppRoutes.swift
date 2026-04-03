@@ -11,7 +11,7 @@ enum AppScreen {
     case firstScreen
     case secondScreen(name: String)
     case chooseTrackings
-    case mainScreen
+    case contentView
 }
 
 extension AppScreen: Hashable {
@@ -24,7 +24,7 @@ extension AppScreen: Hashable {
             hasher.combine(name)
         case .chooseTrackings:
             hasher.combine(2)
-        case .mainScreen:
+        case .contentView:
             hasher.combine(3)
         }
     }
